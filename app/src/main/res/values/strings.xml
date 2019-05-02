@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">KIT305 Assignment 2 | Journal App</string>
+    <string name="title_activity_main__page">Main_Page</string>
+    <string name="trackButton">TRACK YOUR MOOD</string>
+</resources>
