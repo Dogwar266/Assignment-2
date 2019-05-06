@@ -15,6 +15,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.content_main__page);
 
         Button trackButton = findViewById(R.id.trackButton);
+        Button happyButton = findViewById(R.id.happyButton);
+        Button angryButton = findViewById(R.id.angryButton);
+        Button sadbutton = findViewById(R.id.sadButton);
+        Button nuetralButton =findViewById(R.id.nuetralButton);
 
         trackButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -23,5 +27,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
+
+
     }
 }
