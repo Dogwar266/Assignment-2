@@ -8,6 +8,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Switch;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        }
+
     }
+}
 
