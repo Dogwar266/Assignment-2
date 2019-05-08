@@ -8,7 +8,7 @@ import android.provider.BaseColumns;
 
 public class sqliteDatabase {
 
-
+    private sqliteDatabase() {}
 
     public static class FeedEntry implements BaseColumns{
         public static final String TABLE_NAME = "jounalEntries";
