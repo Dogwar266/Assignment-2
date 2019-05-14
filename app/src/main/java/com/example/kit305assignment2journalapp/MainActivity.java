@@ -8,10 +8,15 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static String EMOTION_KEY = "EMOTION";
 
 
     @Override
@@ -22,14 +27,15 @@ public class MainActivity extends AppCompatActivity {
         final Button happyButton = findViewById(R.id.happyButton);
         Button angryButton = findViewById(R.id.angryButton);
         Button sadbutton = findViewById(R.id.sadButton);
-        Button nuetralButton =findViewById(R.id.nuetralButton);
-
+        Button neutralButton =findViewById(R.id.nuetralButton);
 
 
         trackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent i = new Intent(MainActivity.this, Mood_Tracking.class);
+
                 startActivity(i);
             }
         });
@@ -37,7 +43,10 @@ public class MainActivity extends AppCompatActivity {
         happyButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                Button txtEmotion = findViewById(R.id.happyButton);
+                String enteredText = txtEmotion.getText().toString();
                 Intent i = new Intent(MainActivity.this, Journal_Entry.class);
+                i.putExtra(EMOTION_KEY, enteredText);
                 startActivity(i);
             }
         });
@@ -45,7 +54,10 @@ public class MainActivity extends AppCompatActivity {
         angryButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                Button txtEmotion = findViewById(R.id.angryButton);
+                String enteredText = txtEmotion.getText().toString();
                 Intent i = new Intent(MainActivity.this, Journal_Entry.class);
+                i.putExtra(EMOTION_KEY, enteredText);
                 startActivity(i);
             }
         });
@@ -53,15 +65,21 @@ public class MainActivity extends AppCompatActivity {
         sadbutton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                Button txtEmotion = findViewById(R.id.sadButton);
+                String enteredText = txtEmotion.getText().toString();
                 Intent i = new Intent(MainActivity.this, Journal_Entry.class);
+                i.putExtra(EMOTION_KEY, enteredText);
                 startActivity(i);
             }
         });
 
-        nuetralButton.setOnClickListener(new View.OnClickListener(){
+        neutralButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                Button txtEmotion = findViewById(R.id.nuetralButton);
+                String enteredText = txtEmotion.getText().toString();
                 Intent i = new Intent(MainActivity.this, Journal_Entry.class);
+                i.putExtra(EMOTION_KEY, enteredText);
                 startActivity(i);
             }
         });

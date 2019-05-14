@@ -3,6 +3,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.kit305assignment2journalapp.Journal_Entry;
+
 public class Database {
 
     private static final String TAG = "Journal App Database";
@@ -32,6 +34,20 @@ public class Database {
             Log.d(TAG, "DatabaseHelper onCreate");
 
             db.execSQL(JournalTable.CREATE_STATEMENT);
+
+            JournalEntry journalEntry1 = new JournalEntry();
+            journalEntry1.setJournalTitle("Mad!");
+            journalEntry1.setJournalContents("I feel angery reacts only today");
+
+
+            JournalEntry journalEntry2 = new JournalEntry();
+            journalEntry2.setJournalTitle("Sad!");
+            journalEntry2.setJournalContents("I feel sad boiz today!");
+
+
+            JournalTable.insert(db, journalEntry1);
+            JournalTable.insert(db, journalEntry2);
+            Log.d(TAG, "Database Created");
 
         }
 

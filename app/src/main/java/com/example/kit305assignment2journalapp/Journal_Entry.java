@@ -14,6 +14,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class Journal_Entry extends AppCompatActivity {
 
@@ -23,6 +26,11 @@ public class Journal_Entry extends AppCompatActivity {
         setContentView(R.layout.activity_journal__entry);
         ImageButton openCamera = findViewById(R.id.cameraButton);
         final ImageButton openGallery = findViewById(R.id.galleryButton);
+        Button saveButton = findViewById(R.id.saveButton);
+        TextView emotionLabel = findViewById(R.id.emotionLabel);
+        Bundle extras = getIntent().getExtras();
+        emotionLabel.setText(extras.getString(MainActivity.EMOTION_KEY));
+
 
 
         openCamera.setOnClickListener(new View.OnClickListener() {
@@ -30,7 +38,6 @@ public class Journal_Entry extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent("android.media.action.IMAGE_CAPTURE");
                 startActivity(i);
-
 
             }
         });
@@ -46,5 +53,14 @@ public class Journal_Entry extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        saveButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent i = new Intent(Journal_Entry.this, Mood_Tracking.class);
+                startActivity(i);
+            }
+        });
+
     }
 }
