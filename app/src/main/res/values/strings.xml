@@ -6,7 +6,7 @@
     <string name="angryButton">ANGRY</string>
     <string name="happyButton">HAPPY!</string>
     <string name="sadButton">SAD</string>
-    <string name="neutralButton">Nuetral</string>
+    <string name="neutralButton">Neutral</string>
     <string name="specificEmotionButton">Choose a more specific emotion</string>
     <string name="addAttachement">Add Attachement</string>
     <string name="saveButton">SAVE</string>

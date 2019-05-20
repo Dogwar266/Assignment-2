@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -19,6 +20,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class Journal_Entry extends AppCompatActivity {
+
+    public static String EMOTION_KEY = "EMOTION";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +31,8 @@ public class Journal_Entry extends AppCompatActivity {
         ImageButton openCamera = findViewById(R.id.cameraButton);
         final ImageButton openGallery = findViewById(R.id.galleryButton);
         Button saveButton = findViewById(R.id.saveButton);
-        TextView emotionLabel = findViewById(R.id.emotionLabel);
-        Bundle extras = getIntent().getExtras();
+        final TextView emotionLabel = findViewById(R.id.emotionLabel);
+        final Bundle extras = getIntent().getExtras();
         emotionLabel.setText(extras.getString(MainActivity.EMOTION_KEY));
 
 
@@ -66,80 +69,15 @@ public class Journal_Entry extends AppCompatActivity {
         specificEmotion.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                TextView txtEmotion = findViewById(R.id.emotionLabel);
+                String enteredText = txtEmotion.getText().toString();
                 Intent i = new Intent(Journal_Entry.this, PopUpActivity.class);
+                i.putExtra(EMOTION_KEY, enteredText);
                 startActivity(i);
             }
         });
 
+
     }
 
-    public static void Emotions(String emotion) {
-        ArrayList<String> emotions = new ArrayList<String>();
-        switch (emotion){
-            case "Happy":
-                    emotions.add("Cheerful");
-                    emotions.add("Contented");
-                    emotions.add("Delighted");
-                    emotions.add("Ecstatic");
-                    emotions.add("Elated");
-                    emotions.add("Glad");
-                    emotions.add("Joyful");
-                    emotions.add("Joyous");
-                    emotions.add("Jubilant");
-                    emotions.add("Lively");
-                    emotions.add("Merry");
-                    emotions.add("Overjoyed");
-                    emotions.add("Peaceful");
-                    emotions.add("Pleasant");
-                    emotions.add("Thrilled");
-                    emotions.add("Upbeat");
-                break;
-            case "Sad":
-                    emotions.add("Bitter");
-                    emotions.add("Dismal");
-                    emotions.add("Heartbroken");
-                    emotions.add("Melancholy");
-                    emotions.add("Mournful");
-                    emotions.add("Pessimistic");
-                    emotions.add("Somber");
-                    emotions.add("Sorrowful");
-                    emotions.add("Sorry");
-                    emotions.add("Wistful");
-                    emotions.add("Bereaved");
-                    emotions.add("Blue");
-                break;
-            case "Angry":
-                    emotions.add("annoyed");
-                    emotions.add("Bitter");
-                    emotions.add("Enraged");
-                    emotions.add("Exasperated");
-                    emotions.add("Furious");
-                    emotions.add("Heated");
-                    emotions.add("Impassioned");
-                    emotions.add("Indignant");
-                    emotions.add("Irate");
-                    emotions.add("Irritable");
-                    emotions.add("Irritated");
-                    emotions.add("Offended");
-                    emotions.add("Outraged");
-                    emotions.add("Resentful");
-                    emotions.add("Sullen");
-                    emotions.add("Uptight");
-                break;
-            case "Neutral":
-                    emotions.add("Disinterested");
-                    emotions.add("Evenhanded");
-                    emotions.add("Fair-minded");
-                    emotions.add("Inactive");
-                    emotions.add("Indifferent");
-                    emotions.add("Nonaligned");
-                    emotions.add("Nonpartisan");
-                    emotions.add("Unbiased");
-                    emotions.add("Uncommitted");
-                    emotions.add("Undecided");
-                    emotions.add("Uninvolved");
-                break;
-            default:
-        }
-    }
 }

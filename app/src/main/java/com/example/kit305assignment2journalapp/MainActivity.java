@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         final Button happyButton = findViewById(R.id.happyButton);
         Button angryButton = findViewById(R.id.angryButton);
         Button sadbutton = findViewById(R.id.sadButton);
-        Button neutralButton =findViewById(R.id.nuetralButton);
+        Button neutralButton =findViewById(R.id.neutralButton);
 
 
         trackButton.setOnClickListener(new View.OnClickListener() {
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         neutralButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Button txtEmotion = findViewById(R.id.nuetralButton);
+                Button txtEmotion = findViewById(R.id.neutralButton);
                 String enteredText = txtEmotion.getText().toString();
                 Intent i = new Intent(MainActivity.this, Journal_Entry.class);
                 i.putExtra(EMOTION_KEY, enteredText);
