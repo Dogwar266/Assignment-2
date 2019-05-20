@@ -16,7 +16,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 
 public class Journal_Entry extends AppCompatActivity {
@@ -34,6 +33,7 @@ public class Journal_Entry extends AppCompatActivity {
         final TextView emotionLabel = findViewById(R.id.emotionLabel);
         final Bundle extras = getIntent().getExtras();
         emotionLabel.setText(extras.getString(MainActivity.EMOTION_KEY));
+
 
 
 

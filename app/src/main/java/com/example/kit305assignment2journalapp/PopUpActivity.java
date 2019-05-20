@@ -2,6 +2,7 @@ package com.example.kit305assignment2journalapp;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -11,17 +12,21 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class PopUpActivity extends Activity {
-
+    public static String EMOTION_KEY = "EMOTION";
+    final ArrayList<String> emotions = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pop_up);
         final Bundle extras = getIntent().getExtras();
-        String emotion = extras.getString(Journal_Entry.EMOTION_KEY);
+        String emotion = extras.getString(MainActivity.EMOTION_KEY);
+
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -39,9 +44,10 @@ public class PopUpActivity extends Activity {
         getWindow().setAttributes(params);
 
 
-        final ArrayList<String> emotions = new ArrayList<String>();
+
         switch (emotion) {
             case "HAPPY!":
+                emotions.add("Happy");
                 emotions.add("Cheerful");
                 emotions.add("Contented");
                 emotions.add("Delighted");
@@ -60,6 +66,7 @@ public class PopUpActivity extends Activity {
                 emotions.add("Upbeat");
                 break;
             case "SAD":
+                emotions.add("Sad");
                 emotions.add("Bitter");
                 emotions.add("Dismal");
                 emotions.add("Heartbroken");
@@ -74,6 +81,7 @@ public class PopUpActivity extends Activity {
                 emotions.add("Blue");
                 break;
             case "ANGRY":
+                emotions.add("Angry");
                 emotions.add("Annoyed");
                 emotions.add("Bitter");
                 emotions.add("Enraged");
@@ -92,6 +100,7 @@ public class PopUpActivity extends Activity {
                 emotions.add("Uptight");
                 break;
             case "Neutral":
+                emotions.add("Neutral");
                 emotions.add("Disinterested");
                 emotions.add("Evenhanded");
                 emotions.add("Fair-minded");
@@ -105,13 +114,12 @@ public class PopUpActivity extends Activity {
                 emotions.add("Uninvolved");
                 break;
             default:
+                emotion = extras.getString(MainActivity.EMOTION_KEY);
                 break;
         }
 
 
-
-
-        ArrayAdapter<String> emotionAdapter = new ArrayAdapter<String>(
+       ArrayAdapter<String> emotionAdapter = new ArrayAdapter<String>(
                 getApplicationContext(),
                 android.R.layout.simple_list_item_1,
                 emotions);
@@ -119,14 +127,14 @@ public class PopUpActivity extends Activity {
         ListView specificEmotions = findViewById(R.id.emotionList);
         specificEmotions.setAdapter(emotionAdapter);
 
-        /*specificEmotions.setOnClickListener(new AdapterView.OnItemClickListener(){
+        specificEmotions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i){
-                AlertDialog.Builder builder = new AlertDialog.Builder(PopUpActivity.this);
-                builder.setMessage(emotions.get(i)).setTitle("Item Tapped");
-                AlertDialog dialog = builder.create();
-                dialog.show();
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+              String enteredText = emotions.get(position).toString();
+              Intent i = new Intent(PopUpActivity.this, Journal_Entry.class);
+              i.putExtra(EMOTION_KEY, enteredText);
+              startActivity(i);
             }
-        }); */
+        });
     }
 }

@@ -5,6 +5,8 @@ import android.util.Log;
 
 import com.example.kit305assignment2journalapp.Journal_Entry;
 
+import java.util.ArrayList;
+
 public class Database {
 
     private static final String TAG = "Journal App Database";
@@ -13,7 +15,7 @@ public class Database {
     private DatabaseHelper mDbHelper;
     private Context mCtx;
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     public Database(Context ctx) {this.mCtx = ctx;}
 
@@ -47,6 +49,7 @@ public class Database {
 
             JournalTable.insert(db, journalEntry1);
             JournalTable.insert(db, journalEntry2);
+            final ArrayList<JournalEntry> journals = JournalTable.selectAll(db);
             Log.d(TAG, "Database Created");
 
         }

@@ -1,6 +1,8 @@
 package com.example.kit305assignment2journalapp;
 
 import android.content.Intent;
+import android.database.DatabaseErrorHandler;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,9 +16,12 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     public static String EMOTION_KEY = "EMOTION";
+
 
 
     @Override
@@ -28,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         Button angryButton = findViewById(R.id.angryButton);
         Button sadbutton = findViewById(R.id.sadButton);
         Button neutralButton =findViewById(R.id.neutralButton);
-
 
         trackButton.setOnClickListener(new View.OnClickListener() {
             @Override
