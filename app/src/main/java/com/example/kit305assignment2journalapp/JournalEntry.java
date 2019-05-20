@@ -1,3 +1,5 @@
+package com.example.kit305assignment2journalapp;
+
 import android.provider.MediaStore;
 
 public class JournalEntry {

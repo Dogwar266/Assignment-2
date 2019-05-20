@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     public static String EMOTION_KEY = "EMOTION";
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +32,14 @@ public class MainActivity extends AppCompatActivity {
         Button angryButton = findViewById(R.id.angryButton);
         Button sadbutton = findViewById(R.id.sadButton);
         Button neutralButton =findViewById(R.id.neutralButton);
+        /*Database databaseConnection = new Database(this);
+        final SQLiteDatabase db = databaseConnection.open();
+        final ArrayList<JournalEntry> journals = JournalTable.selectAll(db);
+
+        for (int i=0; i<journals.size(); i++){
+            String journal = journals.get(i).toString();
+            Log.d(journal,journal);
+        } */
 
         trackButton.setOnClickListener(new View.OnClickListener() {
             @Override
