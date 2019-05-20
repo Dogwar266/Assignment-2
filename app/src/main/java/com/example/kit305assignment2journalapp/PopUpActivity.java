@@ -27,7 +27,6 @@ public class PopUpActivity extends Activity {
         final Bundle extras = getIntent().getExtras();
         String emotion = extras.getString(MainActivity.EMOTION_KEY);
 
-
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
 
@@ -114,7 +113,10 @@ public class PopUpActivity extends Activity {
                 emotions.add("Uninvolved");
                 break;
             default:
-                emotion = extras.getString(MainActivity.EMOTION_KEY);
+                emotions.add("HAPPY!");
+                emotions.add("SAD");
+                emotions.add("ANGRY");
+                emotions.add("Neutral");
                 break;
         }
 
