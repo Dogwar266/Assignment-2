@@ -24,6 +24,7 @@ public class Journal_Entry extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_journal__entry);
+        Button specificEmotion = findViewById(R.id.specificEmotionButton);
         ImageButton openCamera = findViewById(R.id.cameraButton);
         final ImageButton openGallery = findViewById(R.id.galleryButton);
         Button saveButton = findViewById(R.id.saveButton);
@@ -62,5 +63,83 @@ public class Journal_Entry extends AppCompatActivity {
             }
         });
 
+        specificEmotion.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent i = new Intent(Journal_Entry.this, PopUpActivity.class);
+                startActivity(i);
+            }
+        });
+
+    }
+
+    public static void Emotions(String emotion) {
+        ArrayList<String> emotions = new ArrayList<String>();
+        switch (emotion){
+            case "Happy":
+                    emotions.add("Cheerful");
+                    emotions.add("Contented");
+                    emotions.add("Delighted");
+                    emotions.add("Ecstatic");
+                    emotions.add("Elated");
+                    emotions.add("Glad");
+                    emotions.add("Joyful");
+                    emotions.add("Joyous");
+                    emotions.add("Jubilant");
+                    emotions.add("Lively");
+                    emotions.add("Merry");
+                    emotions.add("Overjoyed");
+                    emotions.add("Peaceful");
+                    emotions.add("Pleasant");
+                    emotions.add("Thrilled");
+                    emotions.add("Upbeat");
+                break;
+            case "Sad":
+                    emotions.add("Bitter");
+                    emotions.add("Dismal");
+                    emotions.add("Heartbroken");
+                    emotions.add("Melancholy");
+                    emotions.add("Mournful");
+                    emotions.add("Pessimistic");
+                    emotions.add("Somber");
+                    emotions.add("Sorrowful");
+                    emotions.add("Sorry");
+                    emotions.add("Wistful");
+                    emotions.add("Bereaved");
+                    emotions.add("Blue");
+                break;
+            case "Angry":
+                    emotions.add("annoyed");
+                    emotions.add("Bitter");
+                    emotions.add("Enraged");
+                    emotions.add("Exasperated");
+                    emotions.add("Furious");
+                    emotions.add("Heated");
+                    emotions.add("Impassioned");
+                    emotions.add("Indignant");
+                    emotions.add("Irate");
+                    emotions.add("Irritable");
+                    emotions.add("Irritated");
+                    emotions.add("Offended");
+                    emotions.add("Outraged");
+                    emotions.add("Resentful");
+                    emotions.add("Sullen");
+                    emotions.add("Uptight");
+                break;
+            case "Neutral":
+                    emotions.add("Disinterested");
+                    emotions.add("Evenhanded");
+                    emotions.add("Fair-minded");
+                    emotions.add("Inactive");
+                    emotions.add("Indifferent");
+                    emotions.add("Nonaligned");
+                    emotions.add("Nonpartisan");
+                    emotions.add("Unbiased");
+                    emotions.add("Uncommitted");
+                    emotions.add("Undecided");
+                    emotions.add("Uninvolved");
+                break;
+            default:
+        }
     }
 }
