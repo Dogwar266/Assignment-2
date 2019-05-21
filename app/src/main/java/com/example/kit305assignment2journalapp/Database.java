@@ -16,8 +16,7 @@ public class Database {
     private DatabaseHelper mDbHelper;
     private Context mCtx;
 
-    private static final int DATABASE_VERSION = 9;
-
+    private static final int DATABASE_VERSION = 11;
     public Database(Context ctx) {this.mCtx = ctx;}
 
     public SQLiteDatabase open() {
@@ -37,22 +36,7 @@ public class Database {
 
             db.execSQL(JournalTable.CREATE_STATEMENT);
 
-            JournalEntry journalEntry1 = new JournalEntry();
-            journalEntry1.setJournalContents("I feel angery reacts only today");
-            journalEntry1.setJournalTitle("Mad!");
 
-
-
-            JournalEntry journalEntry2 = new JournalEntry();
-            journalEntry2.setJournalContents("I feel sad boiz today!");
-            journalEntry2.setJournalTitle("Sad!");
-
-
-
-            JournalTable.insert(db, journalEntry1);
-            JournalTable.insert(db, journalEntry2);
-            final ArrayList<JournalEntry> journals = JournalTable.selectAll(db);
-            Log.d("Hi", "com.example.kit305assignment2journalapp.Database Created");
 
         }
 

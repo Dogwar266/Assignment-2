@@ -37,6 +37,8 @@ public class JournalTable {
             c.moveToFirst();
             while (!c.isAfterLast()){
                 JournalEntry j = createFromCursor(c);
+                results.add(j);
+                c.moveToNext();
             }
         }
 

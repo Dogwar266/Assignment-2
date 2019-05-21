@@ -32,14 +32,36 @@ public class MainActivity extends AppCompatActivity {
         Button angryButton = findViewById(R.id.angryButton);
         Button sadbutton = findViewById(R.id.sadButton);
         Button neutralButton =findViewById(R.id.neutralButton);
-        /*Database databaseConnection = new Database(this);
-        final SQLiteDatabase db = databaseConnection.open();
-        final ArrayList<JournalEntry> journals = JournalTable.selectAll(db);
 
-        for (int i=0; i<journals.size(); i++){
-            String journal = journals.get(i).toString();
-            Log.d(journal,journal);
-        } */
+        Database databaseConnection = new Database(this);
+
+        final SQLiteDatabase db = databaseConnection.open();
+
+
+        JournalEntry journalEntry1 = new JournalEntry();
+        journalEntry1.setJournalContents("I feel angery reacts only today");
+        journalEntry1.setJournalTitle("Mad!");
+
+
+
+        JournalEntry journalEntry2 = new JournalEntry();
+        journalEntry2.setJournalContents("I feel sad boiz today!");
+        journalEntry2.setJournalTitle("Sad!");
+
+
+
+        JournalTable.insert(db, journalEntry1);
+        JournalTable.insert(db, journalEntry2);
+        final ArrayList<JournalEntry> journals = JournalTable.selectAll(db);
+        Log.d("Hi", "com.example.kit305assignment2journalapp.Database Created");
+
+       for (int i=0; i<journals.size(); i++){
+
+            JournalEntry journal = journals.get(i);
+            Log.d("TAG", journal.getJournalTitle());
+        }
+
+
 
         trackButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -33,6 +33,11 @@ public class JournalAdapter extends ArrayAdapter<JournalEntry> {
         TextView textView = row.findViewById(R.id.journalList);
         textView.setText(j.getJournalTitle()+": "+j.getJournalContents());
 
+        TextView lblTitle = row.findViewById(R.id.lblTitle);
+        lblTitle.setText(j.getJournalTitle());
+        TextView lblContents = row.findViewById(R.id.lblContents);
+        lblContents.setText(j.getJournalContents());
+
         return row;
     }
 }
