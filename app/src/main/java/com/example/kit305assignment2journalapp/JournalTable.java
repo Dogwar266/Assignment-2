@@ -14,10 +14,11 @@ public class JournalTable {
     public static final String TABLE_NAME = "journalentry";
     public static final String KEY_JOURNAL_TITLE = "journaltitle";
     public static final String KEY_JOURNAL_CONTENTS = "journalcontents";
+    public static final String KEY_JOURNAL_ID = "journal_id";
 
     public static final String CREATE_STATEMENT = "CREATE TABLE "
             + TABLE_NAME
-            + " (" + KEY_JOURNAL_TITLE + " string not null, "
+            + " (" + KEY_JOURNAL_ID + " integer primary key autoincrement, " + KEY_JOURNAL_TITLE + " string not null, "
             + KEY_JOURNAL_CONTENTS + " string not null "
              + ");";
 
@@ -27,6 +28,28 @@ public class JournalTable {
         values.put(KEY_JOURNAL_TITLE, j.getJournalTitle());
         values.put(KEY_JOURNAL_CONTENTS, j.getJournalContents());
         db.insert(TABLE_NAME, null, values);
+    }
+
+    public static void update(SQLiteDatabase db, JournalEntry j){
+        ContentValues values = new ContentValues();
+        values.put(KEY_JOURNAL_ID, j.getmJournalID());
+        values.put(KEY_JOURNAL_TITLE, j.getJournalTitle());
+        values.put(KEY_JOURNAL_CONTENTS, j.getJournalContents());
+
+        db.update(TABLE_NAME, values, KEY_JOURNAL_ID+"= ?", new String[]{
+                ""+j.getmJournalID()
+        });
+    }
+
+    public static void delete(SQLiteDatabase db, JournalEntry j){
+        ContentValues values = new ContentValues();
+        values.put(KEY_JOURNAL_ID, j.getmJournalID());
+        values.put(KEY_JOURNAL_TITLE, j.getJournalTitle());
+        values.put(KEY_JOURNAL_CONTENTS, j.getJournalContents());
+
+        db.delete(TABLE_NAME, KEY_JOURNAL_ID + "= ?", new String[]{
+                ""+j.getmJournalID()
+        });
     }
 
     public static ArrayList<JournalEntry> selectAll(SQLiteDatabase db){

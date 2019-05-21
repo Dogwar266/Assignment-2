@@ -38,6 +38,7 @@ public class JournalAdapter extends ArrayAdapter<JournalEntry> {
         TextView lblContents = row.findViewById(R.id.lblContents);
         lblContents.setText(j.getJournalContents());
 
+
         return row;
     }
 }

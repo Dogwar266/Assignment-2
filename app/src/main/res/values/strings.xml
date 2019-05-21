@@ -13,4 +13,5 @@
     <string name="weekButton">Week</string>
     <string name="monthButton">Month</string>
     <string name="yearButton">Year</string>
+    <string name="deleteButton">Delete</string>
 </resources>
