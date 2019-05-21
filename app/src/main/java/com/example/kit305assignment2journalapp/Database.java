@@ -35,9 +35,6 @@ public class Database {
         public void onCreate(SQLiteDatabase db){
 
             db.execSQL(JournalTable.CREATE_STATEMENT);
-
-
-
         }
 
         @Override

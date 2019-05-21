@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.kit305assignment2journalapp.JournalEntry;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 public class JournalTable {

@@ -26,12 +26,12 @@ public class JournalAdapter extends ArrayAdapter<JournalEntry> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent){
+
         LayoutInflater layoutInflater =
                 (LayoutInflater)getContext().getSystemService(Service.LAYOUT_INFLATER_SERVICE);
         View row = layoutInflater.inflate(mLayoutResourceID, parent, false);
+
         JournalEntry j = this.getItem(position);
-        TextView textView = row.findViewById(R.id.journalList);
-        textView.setText(j.getJournalTitle()+": "+j.getJournalContents());
 
         TextView lblTitle = row.findViewById(R.id.lblTitle);
         lblTitle.setText(j.getJournalTitle());

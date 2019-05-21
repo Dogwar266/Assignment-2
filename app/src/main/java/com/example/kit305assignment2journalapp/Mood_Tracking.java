@@ -14,12 +14,10 @@ public class Mood_Tracking extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mood__tracking);
-
+        ListView journalList = findViewById(R.id.journalList);
         Database databaseConnection = new Database(this);
         final SQLiteDatabase db = databaseConnection.open();
         final ArrayList<JournalEntry> journals = JournalTable.selectAll(db);
-        ListView journalList = findViewById(R.id.journalList);
-
 
 
         JournalAdapter journalListAdapter =

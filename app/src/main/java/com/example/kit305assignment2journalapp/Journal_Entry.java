@@ -5,6 +5,7 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Picture;
 import android.net.Uri;
 import android.provider.MediaStore;
@@ -16,11 +17,15 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class Journal_Entry extends AppCompatActivity {
 
     public static String EMOTION_KEY = "EMOTION";
+    ImageButton openGallery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +33,15 @@ public class Journal_Entry extends AppCompatActivity {
         setContentView(R.layout.activity_journal__entry);
         Button specificEmotion = findViewById(R.id.specificEmotionButton);
         ImageButton openCamera = findViewById(R.id.cameraButton);
-        final ImageButton openGallery = findViewById(R.id.galleryButton);
+        Button addAttachment = findViewById(R.id.addAttachement);
+        openGallery = findViewById(R.id.galleryButton);
         Button saveButton = findViewById(R.id.saveButton);
         final TextView emotionLabel = findViewById(R.id.emotionLabel);
+        final TextView journalContents = findViewById(R.id.editText);
         final Bundle extras = getIntent().getExtras();
         emotionLabel.setText(extras.getString(MainActivity.EMOTION_KEY));
-
+        Database databaseConnection = new Database(this);
+        final SQLiteDatabase db = databaseConnection.open();
 
 
 
@@ -50,7 +58,7 @@ public class Journal_Entry extends AppCompatActivity {
         openGallery.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent i = new Intent(Intent.ACTION_VIEW, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 i.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 i.setType("image/*");
                 Intent.createChooser(i.setType("image/*"), "Image");
@@ -58,9 +66,22 @@ public class Journal_Entry extends AppCompatActivity {
             }
         });
 
+        addAttachment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+                i.setType("*/*");
+                startActivityForResult(i, 500);
+            }
+        });
+
         saveButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                JournalEntry journalEntry1 = new JournalEntry();
+                journalEntry1.setJournalTitle(emotionLabel.getText().toString());
+                journalEntry1.setJournalContents(journalContents.getText().toString());
+                JournalTable.insert(db, journalEntry1);
                 Intent i = new Intent(Journal_Entry.this, Mood_Tracking.class);
                 startActivity(i);
             }
@@ -78,6 +99,25 @@ public class Journal_Entry extends AppCompatActivity {
         });
 
 
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch(requestCode) {
+            case 500:
+                if(resultCode == RESULT_OK){
+                    try {
+                        final Uri imageUri = data.getData();
+                        final InputStream imageStream = (getContentResolver().openInputStream(imageUri));
+                        final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                        openGallery.setImageBitmap(selectedImage);
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+        }
     }
 
 }

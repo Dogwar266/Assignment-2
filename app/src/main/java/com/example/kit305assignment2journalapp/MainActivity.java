@@ -37,32 +37,6 @@ public class MainActivity extends AppCompatActivity {
 
         final SQLiteDatabase db = databaseConnection.open();
 
-
-        JournalEntry journalEntry1 = new JournalEntry();
-        journalEntry1.setJournalContents("I feel angery reacts only today");
-        journalEntry1.setJournalTitle("Mad!");
-
-
-
-        JournalEntry journalEntry2 = new JournalEntry();
-        journalEntry2.setJournalContents("I feel sad boiz today!");
-        journalEntry2.setJournalTitle("Sad!");
-
-
-
-        JournalTable.insert(db, journalEntry1);
-        JournalTable.insert(db, journalEntry2);
-        final ArrayList<JournalEntry> journals = JournalTable.selectAll(db);
-        Log.d("Hi", "com.example.kit305assignment2journalapp.Database Created");
-
-       for (int i=0; i<journals.size(); i++){
-
-            JournalEntry journal = journals.get(i);
-            Log.d("TAG", journal.getJournalTitle());
-        }
-
-
-
         trackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
