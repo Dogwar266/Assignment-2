@@ -15,4 +15,8 @@
     <string name="yearButton">Year</string>
     <string name="deleteButton">Delete</string>
     <string name="shareButton">Share</string>
+    <string name="dateInitiated">Date Written</string>
+    <string name="timeLabel">Time Written</string>
+    <string name="charactersLabel">Characters</string>
+    <string name="timesfeltLabel">Number of times felt</string>
 </resources>

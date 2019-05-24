@@ -7,7 +7,7 @@
 
     <uses-feature
         android:name="android.hardware.camera.any"
-        android:required="true"></uses-feature>
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -16,9 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PopUpActivity"
-            android:theme="@style/AppTheme.PopUp">
-        </activity>
+        <activity android:name=".journalDetails"></activity>
+        <activity
+            android:name=".PopUpActivity"
+            android:theme="@style/AppTheme.PopUp"></activity>
         <activity android:name=".Journal_Entry" />
         <activity android:name=".Mood_Tracking" />
         <activity android:name=".MainActivity">

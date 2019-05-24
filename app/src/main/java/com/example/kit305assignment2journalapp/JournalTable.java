@@ -34,11 +34,9 @@ public class JournalTable {
 
     public static void update(SQLiteDatabase db, JournalEntry j){
         ContentValues values = new ContentValues();
-        values.put(KEY_JOURNAL_ID, j.getmJournalID());
         values.put(KEY_JOURNAL_TITLE, j.getJournalTitle());
         values.put(KEY_JOURNAL_CONTENTS, j.getJournalContents());
         values.put(KEY_JOURNAL_DATE, j.getJournalDate());
-
         db.update(TABLE_NAME, values, KEY_JOURNAL_ID+"= ?", new String[]{
                 ""+j.getmJournalID()
         });
@@ -46,7 +44,6 @@ public class JournalTable {
 
     public static void delete(SQLiteDatabase db, JournalEntry j){
         ContentValues values = new ContentValues();
-        values.put(KEY_JOURNAL_ID, j.getmJournalID());
         values.put(KEY_JOURNAL_TITLE, j.getJournalTitle());
         values.put(KEY_JOURNAL_CONTENTS, j.getJournalContents());
         values.put(KEY_JOURNAL_DATE, j.getJournalDate());
