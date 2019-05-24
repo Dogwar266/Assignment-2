@@ -41,6 +41,7 @@ public class Journal_Entry extends AppCompatActivity {
         Button shareButton = findViewById(R.id.shareButton);
         openGallery = findViewById(R.id.galleryButton);
         Button saveButton = findViewById(R.id.saveButton);
+        ImageButton homeButton = findViewById(R.id.homeButton);
         final Date date = Calendar.getInstance().getTime();
         final String currentTime = date.toString();
         final TextView emotionLabel = findViewById(R.id.emotionLabel);
@@ -51,6 +52,14 @@ public class Journal_Entry extends AppCompatActivity {
         final SQLiteDatabase db = databaseConnection.open();
 
 
+
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Journal_Entry.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
 
         openCamera.setOnClickListener(new View.OnClickListener() {
             @Override
