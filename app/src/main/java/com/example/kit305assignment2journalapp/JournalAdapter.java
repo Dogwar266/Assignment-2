@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.util.Date;
 import java.util.List;
 
 public class JournalAdapter extends ArrayAdapter<JournalEntry> {
@@ -37,7 +38,8 @@ public class JournalAdapter extends ArrayAdapter<JournalEntry> {
         lblTitle.setText(j.getJournalTitle());
         TextView lblContents = row.findViewById(R.id.lblContents);
         lblContents.setText(j.getJournalContents());
-
+        TextView lblDate = row.findViewById(R.id.lblDate);
+        lblDate.setText(j.getJournalDate());
 
         return row;
     }

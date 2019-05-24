@@ -20,7 +20,11 @@ import android.widget.TextView;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class Journal_Entry extends AppCompatActivity {
 
@@ -34,8 +38,11 @@ public class Journal_Entry extends AppCompatActivity {
         Button specificEmotion = findViewById(R.id.specificEmotionButton);
         ImageButton openCamera = findViewById(R.id.cameraButton);
         Button addAttachment = findViewById(R.id.addAttachement);
+        Button shareButton = findViewById(R.id.shareButton);
         openGallery = findViewById(R.id.galleryButton);
         Button saveButton = findViewById(R.id.saveButton);
+        final Date date = Calendar.getInstance().getTime();
+        final String currentTime = date.toString();
         final TextView emotionLabel = findViewById(R.id.emotionLabel);
         final TextView journalContents = findViewById(R.id.editText);
         final Bundle extras = getIntent().getExtras();
@@ -81,6 +88,7 @@ public class Journal_Entry extends AppCompatActivity {
                 JournalEntry journalEntry1 = new JournalEntry();
                 journalEntry1.setJournalTitle(emotionLabel.getText().toString());
                 journalEntry1.setJournalContents(journalContents.getText().toString());
+                journalEntry1.setJournalDate(currentTime);
                 JournalTable.insert(db, journalEntry1);
                 Intent i = new Intent(Journal_Entry.this, Mood_Tracking.class);
                 startActivity(i);
@@ -98,7 +106,16 @@ public class Journal_Entry extends AppCompatActivity {
             }
         });
 
-
+        shareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent();
+                i.setAction(Intent.ACTION_SEND);
+               i.putExtra(Intent.EXTRA_TEXT, emotionLabel.getText().toString());
+                i.setType("text/plain");
+                startActivity(i);
+            }
+        });
     }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

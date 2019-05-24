@@ -16,7 +16,7 @@ public class Database {
     private DatabaseHelper mDbHelper;
     private Context mCtx;
 
-    private static final int DATABASE_VERSION = 12;
+    private static final int DATABASE_VERSION = 14;
     public Database(Context ctx) {this.mCtx = ctx;}
 
     public SQLiteDatabase open() {
