@@ -2,9 +2,9 @@
     <string name="app_name">KIT305 Assignment 2 | Journal App</string>
     <string name="title_activity_main__page">Main_Page</string>
     <string name="trackButton">TRACK YOUR MOOD</string>
-    <string name="mainScreenLabel">Swipe in a direction on the wheel to choose your mood!</string>
+    <string name="mainScreenLabel">Select your current mood from the radial wheel!</string>
     <string name="angryButton">ANGRY</string>
-    <string name="happyButton">HAPPY!</string>
+    <string name="happyButton">HAPPY</string>
     <string name="sadButton">SAD</string>
     <string name="neutralButton">Neutral</string>
     <string name="specificEmotionButton">Choose a more specific emotion</string>

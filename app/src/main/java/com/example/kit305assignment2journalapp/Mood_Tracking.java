@@ -17,8 +17,10 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class Mood_Tracking extends AppCompatActivity {
 
+
+public class Mood_Tracking extends AppCompatActivity {
+    public static String EMOTION_KEY = "EMOTION";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,10 +47,11 @@ public class Mood_Tracking extends AppCompatActivity {
             }
         });
 
-       journalList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+      journalList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            @Override
            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                final JournalEntry j = journals.get(position);
+
                AlertDialog.Builder builder = new AlertDialog.Builder(Mood_Tracking.this);
                builder.setTitle("Update your Journal Entry");
 
@@ -86,6 +89,21 @@ public class Mood_Tracking extends AppCompatActivity {
            }
        });
 
+
+       journalList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+           @Override
+           public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+               final JournalEntry j = journals.get(position);
+
+               Intent i = new Intent(Mood_Tracking.this, journalDetails.class);
+               Bundle extras = new Bundle();
+               extras.putString(j.getJournalTitle(), j.getJournalContents());
+               i.putExtra(EMOTION_KEY, extras);
+               startActivity(i);
+
+               return false;
+           }
+       });
 
 
     }

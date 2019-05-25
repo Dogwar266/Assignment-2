@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Mood_Tracking" >
+    android:background="#DAD7F0"
+    tools:context=".Mood_Tracking">
 
     <Button
         android:id="@+id/weekButton"
         android:layout_width="88dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:background="@drawable/roundedbutton"
         android:gravity="center"
         android:text="@string/weekButton"
         app:layout_constraintTop_toBottomOf="@+id/placeholder"
@@ -20,6 +22,7 @@
         android:id="@+id/monthButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/roundedbutton"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
@@ -37,7 +40,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="28dp"
         android:layout_marginRight="28dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/roundedbutton"
         android:text="@string/yearButton"
         app:layout_constraintBottom_toTopOf="@+id/journalList"
         app:layout_constraintEnd_toEndOf="parent" />
