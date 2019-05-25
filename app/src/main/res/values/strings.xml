@@ -1,14 +1,14 @@
 <resources>
     <string name="app_name">KIT305 Assignment 2 | Journal App</string>
     <string name="title_activity_main__page">Main_Page</string>
-    <string name="trackButton">TRACK YOUR MOOD</string>
+    <string name="trackButton">Track your mood over time and See Journal Entries!</string>
     <string name="mainScreenLabel">Select your current mood from the radial wheel!</string>
     <string name="angryButton">ANGRY</string>
     <string name="happyButton">HAPPY</string>
     <string name="sadButton">SAD</string>
-    <string name="neutralButton">Neutral</string>
-    <string name="specificEmotionButton">Choose a more specific emotion</string>
-    <string name="addAttachement">Add Attachement</string>
+    <string name="neutralButton">NEUTRAL</string>
+    <string name="specificEmotionButton">Choose a more specific mood</string>
+    <string name="addAttachement">Add a non Media Attachement</string>
     <string name="saveButton">SAVE</string>
     <string name="weekButton">Week</string>
     <string name="monthButton">Month</string>
@@ -19,4 +19,8 @@
     <string name="timeLabel">Time Written</string>
     <string name="charactersLabel">Characters</string>
     <string name="timesfeltLabel">Number of times felt</string>
+    <string name="instructionsMoodTracking">Above are your Journal Entries. You can scroll through these, short click to edit or delete and long click to find out more about them.
+        Further above that you may track your mood over a set period of time.
+    </string>
+    <string name="instructionsJournalEntry">Choose a more specific mood by tapping the button above, or write a journal entry by tapping the box below </string>
 </resources>

@@ -3,6 +3,7 @@ package com.example.kit305assignment2journalapp;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +15,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.ValueDependentColor;
+import com.jjoe64.graphview.helper.StaticLabelsFormatter;
+import com.jjoe64.graphview.series.BarGraphSeries;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.util.ArrayList;
 
@@ -30,6 +38,41 @@ public class Mood_Tracking extends AppCompatActivity {
         Database databaseConnection = new Database(this);
         final SQLiteDatabase db = databaseConnection.open();
         final ArrayList<JournalEntry> journals = JournalTable.selectAll(db);
+
+
+        GraphView graph = (GraphView) findViewById(R.id.graph);
+
+        BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[]{
+                new DataPoint(0, 1),
+                new DataPoint(1, 5),
+                new DataPoint(2, 3),
+                new DataPoint(3, 2),
+                new DataPoint(4, 6)
+        });
+
+        graph.addSeries(series);
+
+        series.setValueDependentColor(new ValueDependentColor<DataPoint>() {
+            @Override
+            public int get(DataPoint data) {
+                return Color.rgb((int) data.getX()*255/4, (int) Math.abs(data.getY()*255/6), 100);
+            }
+        });
+
+        series.setSpacing(50);
+        series.setDrawValuesOnTop(true);
+        series.setValuesOnTopColor(Color.RED);
+
+        graph.getGridLabelRenderer().setNumHorizontalLabels(4);
+        graph.getGridLabelRenderer().setNumVerticalLabels(7);
+        StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
+        staticLabelsFormatter.setHorizontalLabels(new String[]{ "Happy", "Sad", "Angry", "Neutral"});
+        staticLabelsFormatter.setVerticalLabels(new String[]{ "1", "2", "3", "4", "5", "6", "7"});
+        graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
+
+        graph.setTitle("Mood Over Time");
+
+
 
 
         final JournalAdapter journalListAdapter =
@@ -67,7 +110,7 @@ public class Mood_Tracking extends AppCompatActivity {
                    }
                });
 
-               builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+               builder.setPositiveButton("Edit", new DialogInterface.OnClickListener() {
                    @Override
                    public void onClick(DialogInterface dialog, int which) {
                        j.setJournalContents(input.getText().toString());
@@ -96,12 +139,21 @@ public class Mood_Tracking extends AppCompatActivity {
                final JournalEntry j = journals.get(position);
 
                Intent i = new Intent(Mood_Tracking.this, journalDetails.class);
-               Bundle extras = new Bundle();
-               extras.putString(j.getJournalTitle(), j.getJournalContents());
-               i.putExtra(EMOTION_KEY, extras);
+
+               String journalTitle = j.getJournalTitle();
+               String journalContents = j.getJournalContents();
+               String journalDate = j.getJournalDate();
+
+
+               i.putExtra("journalTitle", journalTitle);
+
+               i.putExtra("journalContents", journalContents);
+
+               i.putExtra("journalDate", journalDate);
+
                startActivity(i);
 
-               return false;
+               return true;
            }
        });
 
