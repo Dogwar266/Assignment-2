@@ -63,6 +63,13 @@ public class PopUpActivity extends Activity {
                 emotions.add("Pleasant");
                 emotions.add("Thrilled");
                 emotions.add("Upbeat");
+                emotions.add("Hopeful");
+                emotions.add("Grateful");
+                emotions.add("Pleasant");
+                emotions.add("Enthusiastic");
+                emotions.add("Contented");
+                emotions.add("Inspired");
+                emotions.add("Amused");
                 break;
             case "SAD":
                 emotions.add("Sad");
@@ -78,6 +85,16 @@ public class PopUpActivity extends Activity {
                 emotions.add("Wistful");
                 emotions.add("Bereaved");
                 emotions.add("Blue");
+                emotions.add("Flat");
+                emotions.add("Depressed");
+                emotions.add("Gloomy");
+                emotions.add("Troubled");
+                emotions.add("Unhappy");
+                emotions.add("Dejected");
+                emotions.add("Mournful");
+                emotions.add("Downhearted");
+                emotions.add("Glum");
+
                 break;
             case "ANGRY":
                 emotions.add("Angry");
@@ -97,6 +114,12 @@ public class PopUpActivity extends Activity {
                 emotions.add("Resentful");
                 emotions.add("Sullen");
                 emotions.add("Uptight");
+                emotions.add("Upset");
+                emotions.add("Resentful");
+                emotions.add("Infuriated");
+                emotions.add("Disgruntled");
+                emotions.add("Provoked");
+                emotions.add("Riled");
                 break;
             case "NEUTRAL":
                 emotions.add("Neutral");
@@ -111,6 +134,15 @@ public class PopUpActivity extends Activity {
                 emotions.add("Uncommitted");
                 emotions.add("Undecided");
                 emotions.add("Uninvolved");
+                emotions.add("Ambivalent");
+                emotions.add("Impersonal");
+                emotions.add("Nonchalant");
+                emotions.add("Gray");
+                emotions.add("Apathetic");
+                emotions.add("Even-handed");
+                emotions.add("Fair");
+                emotions.add("Unprejudiced");
+                emotions.add("Open-minded");
                 break;
             default:
                 emotions.add("HAPPY!");
