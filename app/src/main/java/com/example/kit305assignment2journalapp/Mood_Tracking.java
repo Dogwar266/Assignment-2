@@ -35,12 +35,15 @@ public class Mood_Tracking extends AppCompatActivity {
         setContentView(R.layout.activity_mood__tracking);
         final ListView journalList = findViewById(R.id.journalList);
         ImageButton homeButton = findViewById(R.id.homeButton);
+        final Button weekButton = findViewById(R.id.weekButton);
+        Button monthButton = findViewById(R.id.monthButton);
+        Button yearButton = findViewById(R.id.yearButton);
         Database databaseConnection = new Database(this);
         final SQLiteDatabase db = databaseConnection.open();
         final ArrayList<JournalEntry> journals = JournalTable.selectAll(db);
 
 
-        GraphView graph = (GraphView) findViewById(R.id.graph);
+        final GraphView graph = (GraphView) findViewById(R.id.graph);
 
         BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[]{
                 new DataPoint(0, 1),
@@ -64,9 +67,42 @@ public class Mood_Tracking extends AppCompatActivity {
         series.setValuesOnTopColor(Color.RED);
 
         graph.getGridLabelRenderer().setNumHorizontalLabels(4);
-        graph.getGridLabelRenderer().setNumVerticalLabels(7);
-        StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
+
+        final StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
         staticLabelsFormatter.setHorizontalLabels(new String[]{ "Happy", "Sad", "Angry", "Neutral"});
+
+        weekButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                graph.getGridLabelRenderer().setNumVerticalLabels(7);
+                staticLabelsFormatter.setVerticalLabels(new String[]{ "1", "2", "3", "4", "5", "6", "7"});
+
+                graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
+            }
+        });
+
+        monthButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                graph.getGridLabelRenderer().setNumVerticalLabels(4);
+                staticLabelsFormatter.setVerticalLabels(new String[]{ "1", "2", "3", "4"});
+
+                graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
+            }
+        });
+
+        yearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                graph.getGridLabelRenderer().setNumVerticalLabels(12);
+                staticLabelsFormatter.setVerticalLabels(new String[]{ "1", "2", "3", "4", "5", "6", "6", "7", "8", "9", "10", "11", "12"});
+
+                graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
+            }
+        });
+
+
+
         staticLabelsFormatter.setVerticalLabels(new String[]{ "1", "2", "3", "4", "5", "6", "7"});
         graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
 

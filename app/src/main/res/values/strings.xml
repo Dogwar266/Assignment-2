@@ -19,8 +19,9 @@
     <string name="timeLabel">Time Written</string>
     <string name="charactersLabel">Characters</string>
     <string name="timesfeltLabel">Number of times felt</string>
-    <string name="instructionsMoodTracking">Above are your Journal Entries. You can scroll through these, short click to edit or delete and long click to find out more about them.
-        Further above that you may track your mood over a set period of time.
+    <string name="instructionsMoodTracking">
+        To edit or delete a journal entry, short click on a specific entry from the scrollable window above.
+        Long click to view an entry in more detail.
     </string>
     <string name="instructionsJournalEntry">Choose a more specific mood by tapping the button above, or write a journal entry by tapping the box below </string>
 </resources>

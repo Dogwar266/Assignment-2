@@ -36,12 +36,9 @@
         android:id="@+id/dateInitiated"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginTop="40dp"
         android:text="@string/dateInitiated"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/journalContents" />
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="365dp" />
 
     <TextView
         android:id="@+id/timeLabel"
@@ -58,12 +55,9 @@
         android:id="@+id/charactersLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="20dp"
         android:text="@string/charactersLabel"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timeLabel" />
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="447dp" />
 
     <TextView
         android:id="@+id/timesfeltLabel"
