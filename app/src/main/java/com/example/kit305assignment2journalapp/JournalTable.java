@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.kit305assignment2journalapp.JournalEntry;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 
 public class JournalTable {
@@ -14,13 +14,13 @@ public class JournalTable {
     public static final String TABLE_NAME = "journalentry";
     public static final String KEY_JOURNAL_TITLE = "journaltitle";
     public static final String KEY_JOURNAL_CONTENTS = "journalcontents";
-    public static final String KEY_JOURNAL_ID = "journal_id";
+    public static final String KEY_JOURNAL_ID = "journalid";
     public static final String KEY_JOURNAL_DATE = "journaldate";
 
     public static final String CREATE_STATEMENT = "CREATE TABLE "
             + TABLE_NAME
             + " (" + KEY_JOURNAL_ID + " integer primary key autoincrement, " + KEY_JOURNAL_TITLE + " string not null, "
-            + KEY_JOURNAL_CONTENTS + " string not null, " + KEY_JOURNAL_DATE + " DATETIME not null "
+            + KEY_JOURNAL_CONTENTS + " string not null, " + KEY_JOURNAL_DATE + " string not null "
              + ");";
 
 

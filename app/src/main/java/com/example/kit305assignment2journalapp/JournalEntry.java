@@ -17,7 +17,7 @@ public class JournalEntry {
     public void setJournalContents(String s) {  this.mJournalContents = s; }
 
     public int getmJournalID() { return mJournalID; }
-    public void setmJournalTitle(int id) { this.mJournalID = id; }
+    public void setmJournalID (int id) { this.mJournalID = id; }
 
     public String getJournalDate() { return mJournalDate; }
     public void setJournalDate(String s) {  this.mJournalDate = s; }

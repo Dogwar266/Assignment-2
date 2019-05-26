@@ -16,7 +16,7 @@ public class Database {
     private DatabaseHelper mDbHelper;
     private Context mCtx;
 
-    private static final int DATABASE_VERSION = 15;
+    private static final int DATABASE_VERSION = 18;
     public Database(Context ctx) {this.mCtx = ctx;}
 
     public SQLiteDatabase open() {
@@ -42,7 +42,6 @@ public class Database {
             Log.d("TAG", "DatabaseHelper onUpgrade");
             db.execSQL("DROP TABLE IF EXISTS " + JournalTable.TABLE_NAME);
             onCreate(db);
-            Log.d("TAG", " I got here, yay!");
         }
 
     }

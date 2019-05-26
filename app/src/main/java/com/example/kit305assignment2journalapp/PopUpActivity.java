@@ -45,7 +45,7 @@ public class PopUpActivity extends Activity {
 
 
         switch (emotion) {
-            case "HAPPY!":
+            case "HAPPY":
                 emotions.add("Happy");
                 emotions.add("Cheerful");
                 emotions.add("Contented");
@@ -98,7 +98,7 @@ public class PopUpActivity extends Activity {
                 emotions.add("Sullen");
                 emotions.add("Uptight");
                 break;
-            case "Neutral":
+            case "NEUTRAL":
                 emotions.add("Neutral");
                 emotions.add("Disinterested");
                 emotions.add("Evenhanded");

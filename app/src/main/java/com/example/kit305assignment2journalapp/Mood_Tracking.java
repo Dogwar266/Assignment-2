@@ -82,6 +82,8 @@ public class Mood_Tracking extends AppCompatActivity {
         journalList.setAdapter(journalListAdapter);
 
 
+
+
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,6 +96,8 @@ public class Mood_Tracking extends AppCompatActivity {
            @Override
            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                final JournalEntry j = journals.get(position);
+
+
 
                AlertDialog.Builder builder = new AlertDialog.Builder(Mood_Tracking.this);
                builder.setTitle("Update your Journal Entry");
