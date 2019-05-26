@@ -12,8 +12,8 @@
     <Button
         android:id="@+id/trackButton"
         style="@style/Widget.AppCompat.Button"
-        android:layout_width="336dp"
-        android:layout_height="33dp"
+        android:layout_width="343dp"
+        android:layout_height="72dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"

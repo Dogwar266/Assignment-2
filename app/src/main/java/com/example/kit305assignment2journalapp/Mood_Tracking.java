@@ -136,7 +136,7 @@ public class Mood_Tracking extends AppCompatActivity {
 
 
                AlertDialog.Builder builder = new AlertDialog.Builder(Mood_Tracking.this);
-               builder.setTitle("Update your Journal Entry");
+               builder.setTitle("Update your Journal Entry by tapping the text! Then click Edit!");
 
                final EditText input = new EditText(Mood_Tracking.this);
                input.setInputType(InputType.TYPE_CLASS_TEXT);
