@@ -148,7 +148,7 @@ public class PopUpActivity extends Activity {
                 emotions.add("HAPPY!");
                 emotions.add("SAD");
                 emotions.add("ANGRY");
-                emotions.add("Neutral");
+                emotions.add("NEUTRAL");
                 break;
         }
 
